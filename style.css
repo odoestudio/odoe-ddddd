@@ -1,0 +1,40 @@
+/* Custom scrollbar for threat feed */
+#threatFeed::-webkit-scrollbar {
+  width: 8px;
+  background: #232946;
+  border-radius: 8px;
+}
+#threatFeed::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 8px;
+}
+
+/* Custom scrollbar for alerts table */
+#alertsTable::-webkit-scrollbar {
+  height: 8px;
+  background: #232946;
+  border-radius: 8px;
+}
+#alertsTable::-webkit-scrollbar-thumb {
+  background: #ef4444;
+  border-radius: 8px;
+}
+
+/* Responsive tweaks for hero image */
+@media (max-width: 768px) {
+  .hero-img {
+    max-width: 90vw;
+  }
+}
+
+/* Subtle glassmorphism effect for dashboard cards */
+.bg-glass {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+/* Table row hover effect */
+#alertsTable tr:hover {
+  background: rgba(59, 130, 246, 0.08);
+  transition: background 0.2s;
+}
