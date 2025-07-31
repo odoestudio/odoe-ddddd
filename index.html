@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 min-h-screen text-gray-100">
+  <!-- Hero Section -->
+  <section class="px-4 py-8 md:py-12 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <h1 class="text-3xl md:text-5xl font-extrabold mb-4 flex items-center gap-3">
+          <i class="fa-solid fa-shield-halved text-blue-400"></i>
+          Cybersecurity Dashboard
+        </h1>
+        <p class="text-lg md:text-xl text-blue-200 mb-6 max-w-xl">
+          Real-time threat monitoring, alerts, and security insights for your organization.
+        </p>
+        <div class="flex gap-4">
+          <a href="#alerts" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow transition flex items-center gap-2">
+            <i class="fa-solid fa-bolt"></i> View Alerts
+          </a>
+          <a href="#stats" class="border border-blue-500 text-blue-400 px-6 py-3 rounded-lg font-semibold hover:bg-blue-900/30 transition flex items-center gap-2">
+            <i class="fa-solid fa-chart-line"></i> View Stats
+          </a>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 flex justify-center">
+        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=600&q=80" alt="Cybersecurity" class="rounded-2xl shadow-2xl w-full max-w-md border-4 border-blue-700/40">
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Cards -->
+  <section id="stats" class="max-w-7xl mx-auto px-4 md:px-12 py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="bg-gray-800/80 rounded-xl p-6 flex flex-col items-center shadow-lg">
+      <i class="fa-solid fa-bug text-3xl text-red-400 mb-2"></i>
+      <div class="text-2xl font-bold" id="threatsDetected">0</div>
+      <div class="text-gray-400 mt-1">Threats Detected</div>
+    </div>
+    <div class="bg-gray-800/80 rounded-xl p-6 flex flex-col items-center shadow-lg">
+      <i class="fa-solid fa-shield-virus text-3xl text-green-400 mb-2"></i>
+      <div class="text-2xl font-bold" id="threatsBlocked">0</div>
+      <div class="text-gray-400 mt-1">Threats Blocked</div>
+    </div>
+    <div class="bg-gray-800/80 rounded-xl p-6 flex flex-col items-center shadow-lg">
+      <i class="fa-solid fa-user-secret text-3xl text-yellow-400 mb-2"></i>
+      <div class="text-2xl font-bold" id="activeIncidents">0</div>
+      <div class="text-gray-400 mt-1">Active Incidents</div>
+    </div>
+    <div class="bg-gray-800/80 rounded-xl p-6 flex flex-col items-center shadow-lg">
+      <i class="fa-solid fa-network-wired text-3xl text-blue-400 mb-2"></i>
+      <div class="text-2xl font-bold" id="systemsMonitored">0</div>
+      <div class="text-gray-400 mt-1">Systems Monitored</div>
+    </div>
+  </section>
+
+  <!-- Threat Level Indicator -->
+  <section class="max-w-7xl mx-auto px-4 md:px-12 py-8 flex flex-col md:flex-row items-center gap-8">
+    <div class="flex-1 bg-gray-800/80 rounded-xl p-8 shadow-lg flex flex-col items-center">
+      <div class="flex items-center gap-4 mb-4">
+        <i class="fa-solid fa-radiation text-4xl text-yellow-400 animate-pulse"></i>
+        <span class="text-xl font-semibold">Current Threat Level</span>
+      </div>
+      <div id="threatLevel" class="text-3xl font-bold text-yellow-400">Elevated</div>
+      <div class="w-full mt-4">
+        <div class="w-full h-3 bg-gray-700 rounded-full overflow-hidden">
+          <div id="threatLevelBar" class="h-3 bg-yellow-400 transition-all duration-500" style="width: 60%"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Real-time Threat Feed -->
+    <div class="flex-1 bg-gray-800/80 rounded-xl p-8 shadow-lg w-full">
+      <div class="flex items-center gap-3 mb-4">
+        <i class="fa-solid fa-list text-blue-400"></i>
+        <span class="text-lg font-semibold">Real-time Threat Feed</span>
+      </div>
+      <ul id="threatFeed" class="space-y-3 max-h-56 overflow-y-auto pr-2">
+        <!-- Threat feed items will be injected here -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- Recent Alerts Table -->
+  <section id="alerts" class="max-w-7xl mx-auto px-4 md:px-12 py-8">
+    <div class="bg-gray-800/80 rounded-xl shadow-lg p-8">
+      <div class="flex items-center gap-3 mb-6">
+        <i class="fa-solid fa-bell text-red-400"></i>
+        <span class="text-lg font-semibold">Recent Alerts</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-left text-sm">
+          <thead>
+            <tr class="text-gray-400 border-b border-gray-700">
+              <th class="py-2 px-4">Time</th>
+              <th class="py-2 px-4">Type</th>
+              <th class="py-2 px-4">Severity</th>
+              <th class="py-2 px-4">Source</th>
+              <th class="py-2 px-4">Status</th>
+            </tr>
+          </thead>
+          <tbody id="alertsTable">
+            <!-- Alert rows will be injected here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Made by Odoe pill -->
+  <a href="https://odoe.studio" target="_blank" class="fixed bottom-4 right-4 z-50 bg-gray-900/80 text-gray-200 px-4 py-1 rounded-full text-xs shadow-lg flex items-center gap-2 hover:bg-blue-800/80 transition-all" style="backdrop-filter: blur(6px);">
+    <i class="fa-solid fa-bolt text-yellow-400"></i> Made by Odoe
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
